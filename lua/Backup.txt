@@ -1,0 +1,6 @@
+vim.keymap.set("n", "<F7>", function()
+	  local filePath = vim.fn.expand("%:p")
+	  local fileDir = vim.fn.expand("%:p:h")
+	  local output = vim.fn.expand("%:r") .. "Exec.exe"
+	  vim.cmd('term cmd /C "cd /D ' .. fileDir .. ' && gcc "' .. filePath .. '" -IC:/Users/uyand/SDL3_32Bit/include -LC:/Users/uyand/SDL3_32Bit/lib -w -Wl,-subsystem,windows -lSDL3 -o "' .. output .. '" && "' .. output .. '"')
+	  end, { noremap = true, silent = true })
